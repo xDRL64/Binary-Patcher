@@ -1,0 +1,245 @@
+/* APP */
+
+html,body{
+    margin: 0px;
+}
+
+.app-title{
+    font-size: 48px;
+}
+
+.appUserFile-dropArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #97d7c1;
+    box-shadow: 10px 10px 5px 0px rgb(113 108 108 / 75%);
+    border-style: dashed;
+    border-radius: 12px;
+
+    --pad: 16px;
+
+    padding: var(--pad) var(--pad);
+
+    min-height: calc(100% - var(--pad) * 2 - 16px);
+    max-height: calc(120% - var(--pad) * 2 - 16px);
+    overflow-y: auto;
+
+    min-width: calc(50% - var(--pad) * 2 - 16px);
+    max-width: calc(100% - var(--pad) * 2 - 16px);
+    word-wrap: break-word;
+
+    white-space: pre-wrap;
+}
+
+/* PATCH OPTION */
+
+.option-title{
+    margin: 8px 24px 8px 0px;
+    text-shadow: 3px 4px 5px #777777;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.option-version{
+    margin-right: 16px;
+}
+button.option-checkBtn{
+    margin-right: 8px;
+}
+
+.option-processBar{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.option-processBar::before{
+    content: '';
+    background: linear-gradient(59deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(168, 168, 168, 1) 25%,
+        rgba(0, 0, 0, 1) 49%,
+        rgb(166 166 166) 71%,
+        rgba(0, 0, 0, 1) 100%
+    );
+    flex-grow: 1;
+    height: 2px;
+    margin: 0px 8px;
+}
+
+.option-logBox>div{
+    border: 1px solid black;
+    min-width: 100%;
+    width: min-content;
+    box-sizing: border-box;
+    background-color: white;
+}
+.option-checkLog{
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.option-patchLog{
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.option-fullLogCbx{
+    position: sticky;
+    top: 0px;
+    justify-self: start;
+    left: 0px;
+}
+
+.option-logBox{
+    white-space: pre;
+    max-height: 48px;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    user-select: none;
+}
+.option-logBox.fullLog-flag{
+    max-height: fit-content;
+    user-select: auto;
+}
+
+.option-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 32px 8px;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin: 16px 8px;
+    background: linear-gradient(59deg,
+        hwb(243 88% 0% / 1) 0%,
+        hwb(0 177% 34% / 1) 28%,
+        rgba(241, 241, 241, 1) 62%,
+        hwb(221 82% 11% / 1) 88%,
+        hwb(222 114% 0% / 1) 100%
+    );
+}
+.option-panel{
+    max-height: 100%;
+    overflow-y: auto;
+
+    width: 100%;
+}
+
+/* SETTINGS BAR */
+
+.setAll-bar{
+    padding: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.loadPresetFile-dropArea{
+    min-width: 50%;
+    min-height: 50%;
+    background-color: #d0c0b3;
+    box-shadow: 5px 5px 5px 0px rgb(113 108 108 / 75%);
+    display: inline-block;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 100%;
+
+    border-style: dashed;
+    border-radius: 12px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.savePresetFile-button{
+    margin: 16px;
+    flex-shrink: 0;
+}
+.preset-bar{
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid black;
+    overflow: hidden;
+}
+
+.settings-panel{
+    background-color: #f8f2eb77;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr;
+
+    min-height: 100px;
+}
+
+/* MAIN FRAME (PATCH PANEL + SETTIGNS BAR)*/
+
+.app-mainFrame{
+    --opa : 0.3;
+    background: linear-gradient(59deg,
+        rgba(93, 126,233,var(--opa)) 0%,
+        rgba(223,223,223,var(--opa)) 25%,
+        rgba(145,186,249,var(--opa)) 49%,
+        rgba(255,255,255,var(--opa)) 71%,
+        rgba(122,205,255,var(--opa)) 100%
+    );
+    border: 1px solid white;
+    border-radius: 4px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0fr;
+
+    justify-items: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+/* POSITIONING */
+
+.app-title{
+    grid-area: ttl;
+}
+.appUserFile-dropArea{
+    grid-area: lod;
+}
+.appUserFile-downloadBtn{
+    grid-area: sav;
+}
+.app-mainFrame{
+    grid-area: gui;
+}
+
+.app-mainContainter{
+    width:  100vw;
+    height: 100vh;
+    background: linear-gradient(59deg,
+        rgba(151, 215, 193, 1) 0%,
+        rgba(114, 212, 186, 1) 49%,
+        rgba(0, 136, 87, 1) 100%
+    );
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 10fr; 
+    gap: 8px 8px; 
+    grid-template-areas :
+        "ttl ttl ttl"
+        "lod lod sav"
+        "gui gui gui";
+
+    justify-items: center;
+    align-items: center;
+}

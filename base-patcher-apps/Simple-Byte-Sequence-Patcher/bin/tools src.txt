@@ -1,0 +1,3 @@
+https://github.com/xDRL64/Cmini-libs-tools-docs/tree/main/concatFILE-tools
+https://github.com/xDRL64/Cmini-libs-tools-docs/tree/main/replaceSTR-tools
+https://github.com/xDRL64/Cmini-libs-tools-docs/tree/main/printSHELL-tools
